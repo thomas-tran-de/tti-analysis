@@ -8,20 +8,9 @@ from model import FCN
 from model import get_predictions
 from model import plot_predictions
 
-# Set hyperparameters
-date = '20220809'
-device = 'cuda:1'
-imgHeight = 30
-learningRate = 5e-4
-momentum = 0.9
-decay = 1e-3
-batchSize = 32
-samples = 71
-
 # Load model
-name = f'{date}_LR{learningRate:.1e}_momentum{momentum:.1e}_'\
-    f'decay{decay:.1e}_batch{batchSize}_{samples}samples'
-model = torch.load(f'{name}.pt')
+name = 'FinalModel'
+model = torch.load('ModelWeights.pt')
 
 if torch.cuda.is_available():
     model = model.to(device)
